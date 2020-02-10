@@ -11,7 +11,7 @@
 	
 	mounted(){
 		if(navigator.geolocation)
-  			navigator.geolocation.getCurrentPosition(findPosition);
+  			navigator.geolocation.getCurrentPosition(this.findPosition);
 	},		
 
 	data(){
