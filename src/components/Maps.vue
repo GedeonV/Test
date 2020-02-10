@@ -1,8 +1,17 @@
 <template>
 	<div>
-		<div>
-			Position actuelle :  {{infopos}}
+		<div v-if="errorStr">
+		    Sorry, but the following error
+		    occurred: {{errorStr}}
 		</div>
+	  
+	  	<div v-if="gettingLocation">
+	    	<i>Getting your location...</i>
+	  	</div>
+	  
+	  	<div v-if="location">
+	    	Your location data is {{ location.coords.latitude }}, {{ location.coords.longitude}}
+	  	</div>
 	</div>
 </template>
 
@@ -10,21 +19,30 @@
 	export default{
 	
 	mounted(){
-		if(navigator.geolocation)
-  			navigator.geolocation.getCurrentPosition(this.findPosition);
+		if(!("geolocation" in navigator)) {
+	      this.errorStr = 'Geolocation is not available.';
+	      return;
+	    }
+
+	    this.gettingLocation = true;
+	    // get position
+	    navigator.geolocation.getCurrentPosition(pos => {
+	      this.gettingLocation = false;
+	      this.location = pos;
+	    }, err => {
+	      this.gettingLocation = false;
+	      this.errorStr = err.message;
+	    })
 	},		
 
 	data(){
-		infopos : ''
+		location: null
+    	gettingLocation: false
+    	errorStr: null
 	},
 
 	methods : {
-		findPosition(position){
-			this.infopos += "Latitude : "+position.coords.latitude +"\n";
-			this.infopos += "Longitude: "+position.coords.longitude+"\n";
-			this.infopos += "Altitude : "+position.coords.altitude +"\n";
-			console.log(this.infopos)
-		}
+
 	},
 }
 

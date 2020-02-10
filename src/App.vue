@@ -47,13 +47,13 @@
     },
 
     mounted(){
-      axios.get('members').then(response => {
+      /*axios.get('members').then(response => {
           this.$store.commit('members',response.data);
         })
 
         if(this.$store.state.member == false){
           this.$router.push('login')
-        }
+        }*/
 
         let header = document.createElement('script')
         header.setAttribute('src', 'https://use.fontawesome.com/releases/v5.3.1/js/all.js')
@@ -61,9 +61,9 @@
       },
 
     computed : {
-      tokenSet(){
+      /*tokenSet(){
         return (this.$store.state.user_token !== '') ? this.$store.state.user_token : ""
-      }
+      }*/
     },
   }
 </script>
