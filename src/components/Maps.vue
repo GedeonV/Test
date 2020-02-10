@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="container">
 		<div v-if="errorStr">
 		    Sorry, but the following error
 		    occurred: {{errorStr}}
@@ -16,35 +16,36 @@
 </template>
 
 <script>
-	export default{
-	
-	mounted(){
-		if(!("geolocation" in navigator)) {
-	      this.errorStr = 'Geolocation is not available.';
-	      return;
-	    }
+	export default {
+		name : 'Maps',
+		data(){
+			return {
+				location: null
+		    	gettingLocation: false
+		    	errorStr: null
+			}
+		},
+		mounted() {
+			if(!("geolocation" in navigator)) {
+		      this.errorStr = 'Geolocation is not available.';
+		      return;
+		    }
 
-	    this.gettingLocation = true;
-	    // get position
-	    navigator.geolocation.getCurrentPosition(pos => {
-	      this.gettingLocation = false;
-	      this.location = pos;
-	    }, err => {
-	      this.gettingLocation = false;
-	      this.errorStr = err.message;
-	    })
-	},		
+		    this.gettingLocation = true;
+		    // get position
+		    navigator.geolocation.getCurrentPosition(pos => {
+		      this.gettingLocation = false;
+		      this.location = pos;
+		    }, err => {
+		      this.gettingLocation = false;
+		      this.errorStr = err.message;
+		    })
+		},
 
-	data(){
-		location: null
-    	gettingLocation: false
-    	errorStr: null
-	},
-
-	methods : {
-
-	},
-}
+		methods :{
+			
+		},
+	}
 
 </script>
 
