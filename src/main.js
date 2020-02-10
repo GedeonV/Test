@@ -11,6 +11,8 @@ Vue.component('v-gravatar', Gravatar);
 import { tools } from './tools'
 Vue.mixin(tools);
 
+Vue.config.devtools = true
+
 Vue.config.productionTip = false
 Vue.prototype.$bus = new Vue()
 

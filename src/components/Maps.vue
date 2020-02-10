@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div>
-			Position actuelle : {{latitude + longitude + altitude}}
+			Position actuelle : {{position}}
 		</div>
 	</div>
 </template>
@@ -18,6 +18,7 @@
 		latitude: ''
 		longitude: ''
 		altitude: ''
+		position: {}
 	},
 
 	methods : {
