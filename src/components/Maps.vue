@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div>
-			Position actuelle : {{latitude}}, {{longitude}}, {{altitude}}
+			Position actuelle :  {{infopos}}
 		</div>
 	</div>
 </template>
@@ -15,16 +15,15 @@
 	},		
 
 	data(){
-		latitude: ''
-		longitude: ''
-		altitude: ''
+		infopos : ''
 	},
 
 	methods : {
 		findPosition(position){
-			this.latitude = position.coords.latitude
-			this.longitude = position.coords.longitude
-			this.altitude = position.coords.altitude
+			this.infopos += "Latitude : "+position.coords.latitude +"\n";
+			this.infopos += "Longitude: "+position.coords.longitude+"\n";
+			this.infopos += "Altitude : "+position.coords.altitude +"\n";
+			console.log(this.infopos)
 		}
 	},
 }
