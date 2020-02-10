@@ -20,9 +20,9 @@
 		name : 'Maps',
 		data(){
 			return {
-				location: null
-		    	gettingLocation: false
-		    	errorStr: null
+				location: null,
+		    	gettingLocation: false,
+		    	errorStr: null,
 			}
 		},
 		mounted() {
