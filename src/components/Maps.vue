@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div>
-			Position actuelle : {{position}}
+			Position actuelle : {{latitude}}, {{longitude}}, {{altitude}}
 		</div>
 	</div>
 </template>
