@@ -18,14 +18,13 @@
 		latitude: ''
 		longitude: ''
 		altitude: ''
-		position: {}
 	},
 
 	methods : {
 		findPosition(position){
-			latitude = position.coords.latitude
-			longitude = position.coords.longitude
-			altitude = position.coords.altitude
+			this.latitude = position.coords.latitude
+			this.longitude = position.coords.longitude
+			this.altitude = position.coords.altitude
 		}
 	},
 }
