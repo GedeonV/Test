@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="container">
 		<div class="field">
 			<label class="label">Nom</label>
 			<div class="control">
