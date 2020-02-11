@@ -2,11 +2,11 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link v-if="!this.$store.state.member" to="/login">Connexion | </router-link> 
-      <router-link v-if="!this.$store.state.member" to="/register">Inscriptions | </router-link> 
+      <router-link v-if="!this.$store.state.user" to="/login">Connexion | </router-link> 
+      <router-link v-if="!this.$store.state.user" to="/register">Inscriptions | </router-link> 
       <!-- <router-link to="/members">Membres</router-link> | -->
       <router-link to="/maps">Maps</router-link> |
-      <a v-if="this.$store.state.member" type="button" @click="logout()" class="router-link-active" href="#">Déconnexion</a>
+      <a v-if="this.$store.state.user" type="button" @click="logout()" class="router-link-active" href="#">Déconnexion</a>
     </div>
     <router-view/>
   </div>
