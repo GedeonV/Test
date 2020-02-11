@@ -1,6 +1,7 @@
 <template>
-	<div class="field">
-		<label class="label">Nom</label>
+	<div>
+		<div class="field">
+			<label class="label">Nom</label>
 			<div class="control">
 				<input v-model="first_name" class="input is-rounded" type="text" name="nom" placeholder="Nom">
 			</div>
