@@ -13,8 +13,7 @@ export default new Vuex.Store({
   plugins : [vp.plugin],
   
   state: {
-    user_token : '',
-    member: false,
+    user: {}
     //members: false
   },
 
@@ -24,9 +23,8 @@ export default new Vuex.Store({
      state.members = data;
     },
 
-    token(state, data){
-      state.member = true;
-      state.user_token = data;
+    user(state, data){
+      state.user = data;
     },
 
     logout(state){
