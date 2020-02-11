@@ -1,6 +1,9 @@
 <template>
 	<div>
-		
+		<v-gravatar :email="currentMember.email"/>
+		<h1 class="title">{{currentUser.nickname}}</h1>
+		<h2 class="subtitle">{{currentUser.first_name}} {{currentUser.last_name}}</h2>
+		<h2 class="subtitle">Email : {{currentUser.email}}</h2>
 	</div>
 </template>
 
