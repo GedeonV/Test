@@ -25,8 +25,8 @@ export default new Vuex.Store({
     },
 
     token(state, data){
-      state.member = data.member;
-      state.user_token = data.token ;
+      state.member = true;
+      state.user_token = data;
     },
 
     logout(state){
