@@ -2,8 +2,10 @@
 	<div>
 		<v-gravatar :email="currentUser.email"/>
 		<h1 class="title">{{currentUser.nickname}}</h1>
-		<h2 class="subtitle">{{currentUser.first_name}} {{currentUser.last_name}}</h2>
+		<h2 class="subtitle">{{currentUser.last_name}} {{currentUser.first_name}}</h2>
 		<h2 class="subtitle">Email : {{currentUser.email}}</h2>
+		<h2 class="subtitle">Créer le : {{currentUser.created_at}}</h2>
+		
 	</div>
 </template>
 
