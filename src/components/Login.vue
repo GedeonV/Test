@@ -48,7 +48,7 @@
 				console.log(log)
 				axios
 				.post('users/login',log).then(response => {
-					console.log(response.data)
+					console.log(json(response.data))
 					this.$store.commit('token',response.data)
 					this.$router.push("home")
 				});
