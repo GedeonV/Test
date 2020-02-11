@@ -85,7 +85,7 @@ export default {
 			axios
 			.post('users/register',informations).then(response => {
 				console.log(response)
-				this.router.push("login")
+				this.$router.push("login")
 			});
 		}
 	}
