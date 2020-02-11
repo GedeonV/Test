@@ -73,6 +73,7 @@ export default {
 	},
 	methods : {
 		register(){
+			let informations = {}
 			informations.first_name = this.first_name
 			informations.last_name = this.last_name
 			informations.nickname = this.nickname
