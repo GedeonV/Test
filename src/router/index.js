@@ -5,7 +5,7 @@ import Login from '../components/Login.vue'
 import Profile from '../components/Profile.vue'
 import Register from '../components/Register.vue'
 import Maps from '../components/Maps.vue'
-import Stream from '../components/Stream.vue'
+import Streams from '../components/Streams.vue'
 
 Vue.use(VueRouter)
 
