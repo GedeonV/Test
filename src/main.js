@@ -28,7 +28,7 @@ new Vue({
   router,
   store,
   render: h => h(App),
-  beforeCreate() {
+  /*beforeCreate() {
   	window.axios.interceptors.request.use((config) => {
   		if(this.$store.state.user_token){
   			config.url+='?token='+this.$store.state.user_token  		
@@ -38,5 +38,5 @@ new Vue({
   		return console.log(error)
   	}
   	)
-  }
+  }*/
 }).$mount('#app')
