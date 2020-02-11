@@ -12,7 +12,7 @@
 
 		data(){
 			return {
-				currentUser = this.$store.state.user
+				currentUser: this.$store.state.user
 			}
 		},
 
