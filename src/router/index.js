@@ -5,6 +5,7 @@ import Login from '../components/Login.vue'
 import Profile from '../components/Profile.vue'
 import Register from '../components/Register.vue'
 import Maps from '../components/Maps.vue'
+import Stream from '../components/Stream.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/maps',
     name: 'maps',
     component: Maps,
+  },
+  {
+    path: '/streams',
+    name: 'streams',
+    component: Streams
   }
 ]
 
