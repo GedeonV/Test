@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 import Login from '../components/Login.vue'
 import Members from '../components/Members.vue'
 import Discussions from '../components/Discussions.vue'
-import Signup from '../components/Signup.vue'
+import Register from '../components/Register.vue'
 import Maps from '../components/Maps.vue'
 
 Vue.use(VueRouter)
@@ -31,19 +31,9 @@ const routes = [
     component: Members
   },
   {
-    path: '/discussions',
-    name: 'discussions',
-    component: Discussions
-  },
-  {
-    path: '/discussions/:id',
-    name: 'discussion', 
-    component: Discussions,
-  },
-  {
-    path: '/signup',
-    name: 'signup',
-    component: Signup
+    path: '/register',
+    name: 'register',
+    component: register
   },
   {
     path: '/maps',

@@ -1,16 +1,15 @@
 <template>
 	<div class="container">
 		<div v-if="errorStr">
-		    Sorry, but the following error
-		    occurred: {{errorStr}}
+		    Désolé une erreur est apparue : {{errorStr}}
 		</div>
 	  
 	  	<div v-if="gettingLocation">
-	    	<i>Getting your location...</i>
+	    	<i>Récupération de votre localisation...</i>
 	  	</div>
 	  
 	  	<div v-if="location">
-	    	Your location data is {{ location.coords.latitude }}, {{ location.coords.longitude}}
+	    	Votre localisation est {{ location.coords.latitude }}, {{ location.coords.longitude}}
 	  	</div>
 	</div>
 </template>

@@ -22,7 +22,7 @@
 
 		<div class="field">
 			<div class="control">
-				<router-link to="/signup">Pas inscrit ?</router-link>
+				<router-link to="/register">Pas inscrit ?</router-link>
 			</div>	
 		</div>
 	</div>
@@ -47,10 +47,9 @@
 				log.password = this.password
 				console.log(log)
 				axios
-				.post('members/signin',log).then(response => {
+				.post('users/login',log).then(response => {
 					this.$store.commit('token',response.data)
 					this.$router.push("home")
-				
 				});
 			}
 		},

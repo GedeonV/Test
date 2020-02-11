@@ -17,11 +17,11 @@ Vue.config.productionTip = false
 Vue.prototype.$bus = new Vue()
 
  window.axios = axios.create({
-        baseURL: 'https://tools.sopress.net/iut/coop/api/',
+        baseURL: 'https://prj-redsquare.herokuapp.com/',
         params : {
           token : false
         },
-        headers: {'Authorization': "fd794b8d0fee9d04504f7b7027c3810e497d2e52"}
+        //headers: {'Authorization': "fd794b8d0fee9d04504f7b7027c3810e497d2e52"}
         });
 
 new Vue({
