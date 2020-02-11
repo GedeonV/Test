@@ -26,7 +26,7 @@
 		},
 		mounted() {
 			if(!("geolocation" in navigator)) {
-		      this.errorStr = 'Geolocation is not available.';
+		      this.errorStr = 'Le service de géolocalisation n\'est pas disponnible';
 		      return;
 		    }
 

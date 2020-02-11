@@ -32,7 +32,7 @@ const routes = [
   {
     path: '/register',
     name: 'register',
-    component: register,
+    component: Register,
   },
   {
     path: '/maps',
