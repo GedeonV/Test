@@ -13,7 +13,7 @@ export default new Vuex.Store({
   plugins : [vp.plugin],
   
   state: {
-    user: {}
+    user: null
     //members: false
   },
 
