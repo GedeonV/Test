@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="container">
 		<div v-if="this.$store.state.user">
 			<div class="field">
 				<label class="label">Titre</label>
@@ -43,6 +43,8 @@ export default {
 			streamData.title = this.title
 			streamData.description = this.description
 			console.log(streamData)
+			
+
 			/*axios
 			.post('streams/stream',streamData).then(response => {
 				console.log(response.data) 
