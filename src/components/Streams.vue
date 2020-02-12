@@ -57,8 +57,6 @@ export default {
 			streamData.title = this.title
 			streamData.description = this.description
 			console.log(streamData)
-			
-
 			/*axios
 			.post('streams/stream',streamData).then(response => {
 				console.log(response.data) 
@@ -68,6 +66,7 @@ export default {
 			axios
 			.get('streams/stream/'+this.$route.params.id).then(response => {
 				this.currentStream = response.data;
+				
 			})
 		},
 
