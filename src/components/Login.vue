@@ -56,7 +56,8 @@
 					.post('users/login',log).then(response => {
 						console.log(response.data)
 						if (response.data.error) {
-							this.wrongPassword = true;
+							this.wrongPassword = true
+							this.missingPassword = false
 						} else {
 							this.$store.commit('user',response.data)
 							this.$router.push("home")
