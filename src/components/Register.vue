@@ -1,59 +1,61 @@
 <template>
 	<div class="container">
-		<div class="field">
-			<label class="label">Nom</label>
-			<div class="control">
-				<input v-model="first_name" class="input is-rounded" type="text" name="nom" required placeholder="Nom">
+		<form method="post">
+			<div class="field">
+				<label class="label">Nom</label>
+				<div class="control">
+					<input v-model="first_name" class="input is-rounded" type="text" name="nom" required placeholder="Nom">
+				</div>
 			</div>
-		</div>
 
-		<div class="field">
-			<label class="label">Prénom</label>
-			<div class="control">
-				<input v-model="last_name" class="input is-rounded" type="text" name="prenom" required placeholder="Prénom">
+			<div class="field">
+				<label class="label">Prénom</label>
+				<div class="control">
+					<input v-model="last_name" class="input is-rounded" type="text" name="prenom" required placeholder="Prénom">
+				</div>
 			</div>
-		</div>
 
-		<div class="field">
-			<label class="label">Pseudo</label>
-			<div class="control">
-				<input v-model="nickname" class="input is-rounded" type="text"  name="nickname" required placeholder="Pseudo">
+			<div class="field">
+				<label class="label">Pseudo</label>
+				<div class="control">
+					<input v-model="nickname" class="input is-rounded" type="text"  name="nickname" required placeholder="Pseudo">
+				</div>
 			</div>
-		</div>
 
-		<div class="field">
-			<label class="label">Age</label>
-			<div class="control">
-				<input v-model="age" class="input is-rounded" type="number" name="age" required placeholder="Age">
+			<div class="field">
+				<label class="label">Age</label>
+				<div class="control">
+					<input v-model="age" class="input is-rounded" type="number" name="age" required placeholder="Age">
+				</div>
 			</div>
-		</div>
 
-		<div class="field">
-			<label class="label">Date de naissance</label>
-			<div class="control">
-				<input v-model="birth_date" class="input is-rounded" type="date" name="birth_date" required placeholder="Date de naissance">
+			<div class="field">
+				<label class="label">Date de naissance</label>
+				<div class="control">
+					<input v-model="birth_date" class="input is-rounded" type="date" name="birth_date" required placeholder="Date de naissance">
+				</div>
 			</div>
-		</div>
 
-		<div class="field">
-			<label class="label">Email</label>
-			<div class="control">
-				<input v-model="email" class="input is-rounded" type="text" name="email" required placeholder="Email">
+			<div class="field">
+				<label class="label">Email</label>
+				<div class="control">
+					<input v-model="email" class="input is-rounded" type="text" name="email" required placeholder="Email">
+				</div>
 			</div>
-		</div>
 
-		<div class="field">
-			<label class="label">Mot de passe</label>
-			<div class="control">
-				<input v-model="password" class="input is-rounded" type="password" name="psswd" required placeholder="Mot de passe">
+			<div class="field">
+				<label class="label">Mot de passe</label>
+				<div class="control">
+					<input v-model="password" class="input is-rounded" type="password" name="psswd" required placeholder="Mot de passe">
+				</div>
 			</div>
-		</div>
-			
-		<div class="field">
-			<div class="control">
-				<button @click="register()" class="button is-link">Envoyer</button>
+				
+			<div class="field">
+				<div class="control">
+					<button type="submit" @click="register()" class="button is-link">Envoyer</button>
+				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 </template>
 
@@ -62,31 +64,35 @@ export default {
 	name : 'Register',
 	data() {
 		return{
-			first_name : "",
-			last_name: "",
-			nickname: "",
-			age: "",
-			birth_date: "",
-			email : "",
-			password : ""
+			first_name : false,
+			last_name: false,
+			nickname: false,
+			age: false,
+			birth_date: false,
+			email : false,
+			password : false
 			}
 	},
 	methods : {
 		register(){
-			let informations = {}
-			informations.first_name = this.first_name
-			informations.last_name = this.last_name
-			informations.nickname = this.nickname
-			informations.age = this.age
-			informations.birth_date = this.birth_date
-			informations.email = this.email 
-			informations.password = this.password 
-			console.log(informations)
-			axios
-			.post('users/register',informations).then(response => {
-				console.log(response)
-				this.$router.push("login")
-			});
+			if (this.email && this.password) {
+				let informations = {}
+				informations.first_name = this.first_name
+				informations.last_name = this.last_name
+				informations.nickname = this.nickname
+				informations.age = this.age
+				informations.birth_date = this.birth_date
+				informations.email = this.email 
+				informations.password = this.password 
+				console.log(informations)
+				axios
+				.post('users/register',informations).then(response => {
+					console.log(response)
+					this.$router.push("login")
+				});
+			} else {
+				alert("Informations manquantes")
+			}
 		}
 	}
 }
