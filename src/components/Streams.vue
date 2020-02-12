@@ -22,7 +22,12 @@
 			<hr>
 		</div>
 		<div>
-			<h1 class="title">Liste des flux en cours :</h1>
+			<h1 class="title">Liste des diffusions en cours :</h1>
+			<ul>
+				<li v-for="stream in this.streams ">
+					{{stream}}
+				</li>
+			</ul>
 		</div>
 	</div>
 </template>
@@ -34,6 +39,7 @@ export default {
 		return{
 				title: '',
 				description: '',
+				streams : {},
 			}
 	},
 	methods : {
@@ -58,9 +64,10 @@ export default {
 			axios
 			.post('streams/').then(response => {
 				console.log(response.data)
+				this.streams = response.data
 			})
 		},
-		
+
 		onRouteChange(){
 				if(this.$route.params.id){
 					this.loadStream();
@@ -81,8 +88,8 @@ export default {
 			} else {
 				this.loadStreams();
 			}
-			//this.$bus.$on('reloadStream', this.loadStreams);
 			setInterval(this.loadStreams, 5000)
+			//this.$bus.$on('reloadStream', this.loadStreams);
 	}
 }
 
