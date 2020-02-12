@@ -62,7 +62,7 @@ export default {
 
 		loadStreams(){
 			axios
-			.post('streams/').then(response => {
+			.get('streams/').then(response => {
 				console.log(response.data)
 				this.streams = response.data
 			})
