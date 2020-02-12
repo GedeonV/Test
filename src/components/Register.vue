@@ -79,7 +79,7 @@ export default {
 	methods : {
 		register(){
 			if(this.email.length > 0){
-				if(this.password length > 6){
+				if(this.password.length > 6){
 					let informations = {}
 					informations.first_name = this.first_name
 					informations.last_name = this.last_name
