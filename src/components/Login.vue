@@ -36,7 +36,9 @@
 		data(){
 			return {
 				email : "zinni.arthur@gmail.com",
+				missingEmail : false,
 				password : "1234",
+				missingPassword : false,
 				enable: true,
 			}
 		},
