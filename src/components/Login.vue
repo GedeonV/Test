@@ -13,6 +13,7 @@
 			<div class="control">
 				<input v-model="password" v-bind:class="{'is-danger' : missingPassword, 'is-rounded' : enable, 'input' : enable}" type="password" name="psswd" placeholder="Mot de passe">
 				<p v-show="missingPassword" class="help is-danger">Le champ doit être rempli</p>
+				<p v-show="wrongPassword" class="help is-danger">Mauvais mot de passe</p>
 			</div>
 		</div>
 			
@@ -39,6 +40,7 @@
 				missingEmail : false,
 				password : "1234",
 				missingPassword : false,
+				wrongPassword : false,
 				enable: true,
 			}
 		},
@@ -54,10 +56,11 @@
 					.post('users/login',log).then(response => {
 						console.log(response.data)
 						if (response.data.error) {
-							console.log(response.data.error)
+							this.wrongPassword = true;
+						} else {
+							this.$store.commit('user',response.data)
+							this.$router.push("home")
 						}
-						//this.$store.commit('user',response.data)
-						//this.$router.push("home")
 					});
 				} else {
 					this.missingEmail = true;
