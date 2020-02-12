@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<form method="post" v-on:submit="register()">
+		<form method="post">
 			<div class="field">
 				<label class="label">Nom</label>
 				<div class="control">
@@ -52,7 +52,7 @@
 				
 			<div class="field">
 				<div class="control">
-					<button type="submit" class="button is-link">Envoyer</button>
+					<button @click="register()" class="button is-link">Envoyer</button>
 				</div>
 			</div>
 		</form>
@@ -64,13 +64,13 @@ export default {
 	name : 'Register',
 	data() {
 		return{
-			first_name : '',
-			last_name: '',
-			nickname: '',
-			age: '',
-			birth_date: '',
-			email : '',
-			password : ''
+			first_name : "",
+			last_name: "",
+			nickname: "",
+			age: "",
+			birth_date: "",
+			email : "",
+			password : ""
 			}
 	},
 	methods : {
