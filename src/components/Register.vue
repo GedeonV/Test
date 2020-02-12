@@ -1,6 +1,5 @@
 <template>
 	<div class="container">
-		<form method="post">
 			<div class="field">
 				<label class="label">Nom</label>
 				<div class="control">
@@ -55,7 +54,6 @@
 					<button @click="register()" class="button is-link">Envoyer</button>
 				</div>
 			</div>
-		</form>
 	</div>
 </template>
 
