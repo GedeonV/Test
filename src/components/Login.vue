@@ -53,8 +53,11 @@
 					axios
 					.post('users/login',log).then(response => {
 						console.log(response.data)
-						this.$store.commit('user',response.data)
-						this.$router.push("home")
+						if (response.data.error) {
+							console.log(response.data.error)
+						}
+						//this.$store.commit('user',response.data)
+						//this.$router.push("home")
 					});
 				} else {
 					this.missingEmail = true;
