@@ -1,5 +1,5 @@
 <template>
-	<form v-on:submit="register()">
+	<form method="post" action=# v-on:submit="register()">
 		<div class="container">
 				<div class="field">
 					<label class="label">Nom</label>
