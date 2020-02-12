@@ -82,7 +82,7 @@ export default {
 	},
 	methods : {
 		register(){
-			if(this.email.length > 0 && this.password.length > 6 && this.age.length > 0 && this.nickname.length > 0){
+			if(this.email.length > 0 && this.password.length > 5 && this.age.length > 0 && this.nickname.length > 0){
 					let informations = {}
 					informations.first_name = this.first_name
 					informations.last_name = this.last_name
