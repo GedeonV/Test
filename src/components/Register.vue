@@ -1,5 +1,4 @@
 <template>
-	<form>
 		<div class="container">
 				<div class="field">
 					<label class="label">Nom</label>
@@ -39,7 +38,7 @@
 				<div class="field">
 					<label class="label">Email</label>
 					<div class="control">
-						<input v-model="email" v-bind:class="{'is-danger' : missingEmail, 'is-rounded' : rounded, 'input' : rounded}" type="text" name="email" required placeholder="Email">
+						<input v-model="email" v-bind:class="{'is-danger' : missingEmail, 'is-rounded' : enable, 'input' : enable}" type="text" name="email" required placeholder="Email">
 						<p v-show="missingEmail" class="help is-danger">Le champ doit être rempli</p>
 					</div>
 				</div>
@@ -47,7 +46,7 @@
 				<div class="field">
 					<label class="label">Mot de passe</label>
 					<div class="control">
-						<input v-model="password" v-bind:class="{'is-danger' : wrongPassword, 'is-rounded' : rounded, 'input' : rounded}" type="password" name="psswd" required placeholder="Mot de passe">
+						<input v-model="password" v-bind:class="{'is-danger' : wrongPassword, 'is-rounded' : enable, 'input' : enable}" type="password" name="psswd" required placeholder="Mot de passe">
 						<p v-show="wrongPassword" class="help is-danger">Le mot passe doit contenir plus de 6 caractères</p>
 					</div>
 				</div>
@@ -58,7 +57,6 @@
 					</div>
 				</div>
 		</div>
-	</form>
 </template>
 
 <script>
@@ -75,13 +73,12 @@ export default {
 			missingEmail : false,
 			password : "",
 			wrongPassword: false,
-			rounded: true,
+			enable: true,
 			}
 	},
 	methods : {
 		register(){
-			if(this.email.length > 0){
-				if(this.password.length > 6){
+			if(this.email.length > 0 && this.password.length > 6){
 					let informations = {}
 					informations.first_name = this.first_name
 					informations.last_name = this.last_name
@@ -96,11 +93,9 @@ export default {
 						console.log(response)
 						this.$router.push("login")
 					});
-				} else {
-					this.wrongPassword = true; 
-				}
 			} else {
 				this.missingEmail = true;
+				this.wrongPassword = true;
 			}
 
 		}
