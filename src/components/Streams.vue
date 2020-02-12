@@ -25,6 +25,10 @@
 			<h1 class="title">Liste des diffusions en cours :</h1>
 			<ul>
 				<li v-for="stream in this.streams ">
+					<router-link :to="{
+						name: 'stream', 
+						params: { id: stream.id_user }
+					}">
 					{{stream}}
 				</li>
 			</ul>
@@ -88,7 +92,7 @@ export default {
 			} else {
 				this.loadStreams();
 			}
-			this.$bus.$on('reloadStream', this.loadStreams);
+			this.$bus.$on('reloadStream', this.loadStreams)
 			setInterval(this.loadStreams, 15000)
 	}
 }

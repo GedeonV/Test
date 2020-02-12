@@ -39,7 +39,12 @@ const routes = [
     path: '/streams',
     name: 'streams',
     component: Streams
-  }
+  },
+  {
+    path: '/streams/:id',
+    name: 'stream', 
+    component: Streams,
+  },
 ]
 
 const router = new VueRouter({
