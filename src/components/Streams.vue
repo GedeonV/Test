@@ -88,7 +88,7 @@ export default {
 			} else {
 				this.loadStreams();
 			}
-			setInterval(this.loadStreams, 5000)
+			//setInterval(this.loadStreams, 5000)
 			//this.$bus.$on('reloadStream', this.loadStreams);
 	}
 }
