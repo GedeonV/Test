@@ -39,7 +39,7 @@
 				<div class="field">
 					<label class="label">Email</label>
 					<div class="control">
-						<input v-model="email" v-bind:class="{'is-danger' : missingEmail, 'input'}" type="text" name="email" required placeholder="Email">
+						<input v-model="email" v-bind:class="{'is-danger' : missingEmail, 'is-rounded' : rounded, 'input' : rounded}" type="text" name="email" required placeholder="Email">
 						<p v-show="missingEmail" class="help is-danger">Le champ doit être rempli</p>
 					</div>
 				</div>
@@ -47,7 +47,7 @@
 				<div class="field">
 					<label class="label">Mot de passe</label>
 					<div class="control">
-						<input v-model="password" v-bind:class="{'is-danger' : wrongPassword, 'input'}" type="password" name="psswd" required placeholder="Mot de passe">
+						<input v-model="password" v-bind:class="{'is-danger' : wrongPassword, 'is-rounded' : rounded, 'input' : rounded}" type="password" name="psswd" required placeholder="Mot de passe">
 						<p v-show="wrongPassword" class="help is-danger">Le mot passe doit contenir plus de 6 caractères</p>
 					</div>
 				</div>
@@ -75,12 +75,8 @@ export default {
 			missingEmail : false,
 			password : "",
 			wrongPassword: false,
-			
-			classObject: {
-			    'is-rounded' : true,
-			    'input' : true
-			},
-		}
+			rounded: true,
+			}
 	},
 	methods : {
 		register(){
