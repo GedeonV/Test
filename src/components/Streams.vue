@@ -49,7 +49,40 @@ export default {
 			.post('streams/stream',streamData).then(response => {
 				console.log(response.data) 
 			},*/
+		},
+		loadStream(){
+
+		},
+
+		loadStreams(){
+			axios
+			.post('streams/').then(response => {
+				console.log(response.data)
+			})
+		},
+		
+		onRouteChange(){
+				if(this.$route.params.id){
+					this.loadStream();
+				} else {
+					this.loadStreams();
+				}
 		}
+
+	},
+	watch:{
+	    $route (to, from){
+	    	this.onRouteChange();
+	    }
+	},
+	mounted(){
+		if(this.$route.params.id){
+				this.loadStream();
+			} else {
+				this.loadStreams();
+			}
+			//this.$bus.$on('reloadStream', this.loadStreams);
+			setInterval(this.loadStreams, 5000)
 	}
 }
 
