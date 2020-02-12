@@ -12,8 +12,8 @@
 			<label class="label">Mot de passe</label>
 			<div class="control">
 				<input v-model="password" v-bind:class="{'is-danger' : missingPassword, 'is-rounded' : enable, 'input' : enable}" type="password" name="psswd" placeholder="Mot de passe">
-				<p v-show="missingPassword" class="help is-danger">Le champ doit être rempli</p>
-				<p v-show="wrongPassword" class="help is-danger">Mauvais mot de passe</p>
+				<p v-if="missingPassword" class="help is-danger">Le champ doit être rempli</p>
+				<p v-if="wrongPassword" class="help is-danger">Mauvais mot de passe</p>
 			</div>
 		</div>
 			
