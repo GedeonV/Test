@@ -3,49 +3,49 @@
 		<div class="field">
 			<label class="label">Nom</label>
 			<div class="control">
-				<input v-model="first_name" class="input is-rounded" type="text" name="nom" placeholder="Nom">
+				<input v-model="first_name" class="input is-rounded" type="text" name="nom" required placeholder="Nom">
 			</div>
 		</div>
 
 		<div class="field">
 			<label class="label">Prénom</label>
 			<div class="control">
-				<input v-model="last_name" class="input is-rounded" type="text" name="prenom" placeholder="Prénom">
+				<input v-model="last_name" class="input is-rounded" type="text" name="prenom" required placeholder="Prénom">
 			</div>
 		</div>
 
 		<div class="field">
 			<label class="label">Pseudo</label>
 			<div class="control">
-				<input v-model="nickname" class="input is-rounded" type="text" name="nickname" placeholder="Pseudo">
+				<input v-model="nickname" class="input is-rounded" type="text"  name="nickname" required placeholder="Pseudo">
 			</div>
 		</div>
 
 		<div class="field">
 			<label class="label">Age</label>
 			<div class="control">
-				<input v-model="age" class="input is-rounded" type="number" name="age" placeholder="Age">
+				<input v-model="age" class="input is-rounded" type="number" name="age" required placeholder="Age">
 			</div>
 		</div>
 
 		<div class="field">
 			<label class="label">Date de naissance</label>
 			<div class="control">
-				<input v-model="birth_date" class="input is-rounded" type="date" name="birth_date" placeholder="Date de naissance">
+				<input v-model="birth_date" class="input is-rounded" type="date" name="birth_date" required placeholder="Date de naissance">
 			</div>
 		</div>
 
 		<div class="field">
 			<label class="label">Email</label>
 			<div class="control">
-				<input v-model="email" class="input is-rounded" type="text" name="email" placeholder="Email">
+				<input v-model="email" class="input is-rounded" type="text" name="email" required placeholder="Email">
 			</div>
 		</div>
 
 		<div class="field">
 			<label class="label">Mot de passe</label>
 			<div class="control">
-				<input v-model="password" class="input is-rounded" type="password" name="psswd" placeholder="Mot de passe">
+				<input v-model="password" class="input is-rounded" type="password" name="psswd" required placeholder="Mot de passe">
 			</div>
 		</div>
 			
