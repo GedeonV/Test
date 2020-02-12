@@ -17,14 +17,16 @@
 				<div class="field">
 					<label class="label">Pseudo</label>
 					<div class="control">
-						<input v-model="nickname" class="input is-rounded" type="text"  name="nickname" required placeholder="Pseudo">
+						<input v-model="nickname" v-bind:class="{'is-danger' : missingNickname, 'is-rounded' : enable, 'input' : enable}" required placeholder="Pseudo">
+						<p v-show="missingNickname" class="help is-danger">Le champ doit être rempli</p>
 					</div>
 				</div>
 
 				<div class="field">
 					<label class="label">Age</label>
 					<div class="control">
-						<input v-model="age" class="input is-rounded" type="number" name="age" required placeholder="Age">
+						<input v-model="age" v-bind:class="{'is-danger' : missingAge, 'is-rounded' : enable, 'input' : enable}" type="number" name="age" required placeholder="Age">
+						<p v-show="missingAge" class="help is-danger">Le champ doit être rempli</p>
 					</div>
 				</div>
 
@@ -63,22 +65,24 @@
 export default {
 	name : 'Register',
 	data() {
-		return{
+		return {
 			first_name : "",
 			last_name: "",
 			nickname: "",
+			missingNickname : false,
 			age: "",
+			missingAge : false, 
 			birth_date: "",
 			email : "",
 			missingEmail : false,
 			password : "",
 			wrongPassword: false,
 			enable: true,
-			}
+		}
 	},
 	methods : {
 		register(){
-			if(this.email.length > 0 && this.password.length > 6){
+			if(this.email.length > 0 && this.password.length > 6 && this.age.length > 0 && this.nickname.length > 0){
 					let informations = {}
 					informations.first_name = this.first_name
 					informations.last_name = this.last_name
@@ -96,6 +100,8 @@ export default {
 			} else {
 				this.missingEmail = true;
 				this.wrongPassword = true;
+				this.missingNickname = true;
+				this.missingAge = true;
 			}
 
 		}
