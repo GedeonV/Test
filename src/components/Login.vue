@@ -3,14 +3,16 @@
 		<div class="field">
 			<label class="label">Email</label>
 			<div class="control">
-				<input v-model="email" class="input is-rounded" type="text" name="email" placeholder="Email">
+				<input v-model="email" v-bind:class="{'is-danger' : missingEmail, 'is-rounded' : enable, 'input' : enable}" type="text" name="email" placeholder="Email">
+				<p v-show="missingEmail" class="help is-danger">Le champ doit être rempli</p>
 			</div>
 		</div>
 
 		<div class="field">
 			<label class="label">Mot de passe</label>
 			<div class="control">
-				<input v-model="password" class="input is-rounded" type="password" name="psswd" placeholder="Mot de passe">
+				<input v-model="password" v-bind:class="{'is-danger' : missingPassword, 'is-rounded' : enable, 'input' : enable}" type="password" name="psswd" placeholder="Mot de passe">
+				<p v-show="missingPassword" class="help is-danger">Le champ doit être rempli</p>
 			</div>
 		</div>
 			
@@ -34,24 +36,28 @@
 		data(){
 			return {
 				email : "zinni.arthur@gmail.com",
-				password : "1234"
+				password : "1234",
+				enable: true,
 			}
-		},
-		mounted() {
-
 		},
 		methods :{
 			signin(){
-				let log = {}
-				log.email = this.email
-				log.password = this.password
-				console.log(log)
-				axios
-				.post('users/login',log).then(response => {
-					console.log(response.data)
-					this.$store.commit('user',response.data)
-					this.$router.push("home")
-				});
+				if (this.password.length > 0 && this.email.length > 0) {
+					let log = {}
+					log.email = this.email
+					log.password = this.password
+					console.log(log)
+					
+					axios
+					.post('users/login',log).then(response => {
+						console.log(response.data)
+						this.$store.commit('user',response.data)
+						this.$router.push("home")
+					});
+				} else {
+					this.missingEmail = true;
+					this.missingPassword = true;
+				}
 			}
 		},
 	}
