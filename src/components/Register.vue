@@ -1,60 +1,62 @@
 <template>
-	<div class="container">
-			<div class="field">
-				<label class="label">Nom</label>
-				<div class="control">
-					<input v-model="first_name" class="input is-rounded" type="text" name="nom" required placeholder="Nom">
+	<form v-on:submit="register()">
+		<div class="container">
+				<div class="field">
+					<label class="label">Nom</label>
+					<div class="control">
+						<input v-model="first_name" class="input is-rounded" type="text" name="nom" required placeholder="Nom">
+					</div>
 				</div>
-			</div>
 
-			<div class="field">
-				<label class="label">Prénom</label>
-				<div class="control">
-					<input v-model="last_name" class="input is-rounded" type="text" name="prenom" required placeholder="Prénom">
+				<div class="field">
+					<label class="label">Prénom</label>
+					<div class="control">
+						<input v-model="last_name" class="input is-rounded" type="text" name="prenom" required placeholder="Prénom">
+					</div>
 				</div>
-			</div>
 
-			<div class="field">
-				<label class="label">Pseudo</label>
-				<div class="control">
-					<input v-model="nickname" class="input is-rounded" type="text"  name="nickname" required placeholder="Pseudo">
+				<div class="field">
+					<label class="label">Pseudo</label>
+					<div class="control">
+						<input v-model="nickname" class="input is-rounded" type="text"  name="nickname" required placeholder="Pseudo">
+					</div>
 				</div>
-			</div>
 
-			<div class="field">
-				<label class="label">Age</label>
-				<div class="control">
-					<input v-model="age" class="input is-rounded" type="number" name="age" required placeholder="Age">
+				<div class="field">
+					<label class="label">Age</label>
+					<div class="control">
+						<input v-model="age" class="input is-rounded" type="number" name="age" required placeholder="Age">
+					</div>
 				</div>
-			</div>
 
-			<div class="field">
-				<label class="label">Date de naissance</label>
-				<div class="control">
-					<input v-model="birth_date" class="input is-rounded" type="date" name="birth_date" required placeholder="Date de naissance">
+				<div class="field">
+					<label class="label">Date de naissance</label>
+					<div class="control">
+						<input v-model="birth_date" class="input is-rounded" type="date" name="birth_date" required placeholder="Date de naissance">
+					</div>
 				</div>
-			</div>
 
-			<div class="field">
-				<label class="label">Email</label>
-				<div class="control">
-					<input v-model="email" class="input is-rounded" type="text" name="email" required placeholder="Email">
+				<div class="field">
+					<label class="label">Email</label>
+					<div class="control">
+						<input v-model="email" class="input is-rounded" type="text" name="email" required placeholder="Email">
+					</div>
 				</div>
-			</div>
 
-			<div class="field">
-				<label class="label">Mot de passe</label>
-				<div class="control">
-					<input v-model="password" class="input is-rounded" type="password" name="psswd" required placeholder="Mot de passe">
+				<div class="field">
+					<label class="label">Mot de passe</label>
+					<div class="control">
+						<input v-model="password" class="input is-rounded" type="password" name="psswd" required placeholder="Mot de passe">
+					</div>
 				</div>
-			</div>
-				
-			<div class="field">
-				<div class="control">
-					<button @click="register()" class="button is-link">Envoyer</button>
+					
+				<div class="field">
+					<div class="control">
+						<button type="submit" class="button is-link">Envoyer</button>
+					</div>
 				</div>
-			</div>
-	</div>
+		</div>
+	</form>
 </template>
 
 <script>
