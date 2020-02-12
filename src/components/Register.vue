@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<form method="post">
+		<form method="post" v-on:submit="register()">
 			<div class="field">
 				<label class="label">Nom</label>
 				<div class="control">
@@ -52,7 +52,7 @@
 				
 			<div class="field">
 				<div class="control">
-					<button type="submit" @click="register()" class="button is-link">Envoyer</button>
+					<button type="submit" class="button is-link">Envoyer</button>
 				</div>
 			</div>
 		</form>
@@ -75,7 +75,7 @@ export default {
 	},
 	methods : {
 		register(){
-			if (this.email.length > 2 && this.password.length > 2) {
+			if (this.password.length > 2) {
 				let informations = {}
 				informations.first_name = this.first_name
 				informations.last_name = this.last_name
