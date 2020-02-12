@@ -21,7 +21,7 @@
 			</div>
 			<hr>
 		</div>
-		<div>
+		<div v-if="!currentStream">
 			<h1 class="title">Liste des diffusions en cours :</h1>
 			<ul>
 				<li v-for="stream in this.streams ">
@@ -32,6 +32,9 @@
 					{{stream}}
 				</li>
 			</ul>
+		</div>
+		<div v-if="currentStream">
+			<h1 class="title">{{currentStream.title}}</h1>
 		</div>
 	</div>
 </template>
@@ -44,6 +47,7 @@ export default {
 				title: '',
 				description: '',
 				streams : {},
+				currentStream : false
 			}
 	},
 	methods : {
@@ -61,7 +65,10 @@ export default {
 			},*/
 		},
 		loadStream(){
-
+			axios
+			.get('streams/stream/'+this.$route.params.id).then(response => {
+				this.currentStream = response.data;
+			})
 		},
 
 		loadStreams(){
