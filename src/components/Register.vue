@@ -64,18 +64,18 @@ export default {
 	name : 'Register',
 	data() {
 		return{
-			first_name : false,
-			last_name: false,
-			nickname: false,
-			age: false,
-			birth_date: false,
-			email : false,
-			password : false
+			first_name : '',
+			last_name: '',
+			nickname: '',
+			age: '',
+			birth_date: '',
+			email : '',
+			password : ''
 			}
 	},
 	methods : {
 		register(){
-			if (this.email && this.password) {
+			if (this.email.length > 2 && this.password.length > 2) {
 				let informations = {}
 				informations.first_name = this.first_name
 				informations.last_name = this.last_name
