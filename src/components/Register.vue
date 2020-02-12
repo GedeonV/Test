@@ -1,5 +1,5 @@
 <template>
-	<form method="post" action='#' v-on:submit="register()">
+	<form>
 		<div class="container">
 				<div class="field">
 					<label class="label">Nom</label>
@@ -39,7 +39,8 @@
 				<div class="field">
 					<label class="label">Email</label>
 					<div class="control">
-						<input v-model="email" class="input is-rounded" type="text" name="email" required placeholder="Email">
+						<input v-model="email" v-bind:class="{'is-danger' : missingEmail, 'is-rounded' : true}" type="text" name="email" required placeholder="Email">
+						<p v-show="missingEmail" class="help is-danger">This email is invalid</p>
 					</div>
 				</div>
 
@@ -52,7 +53,7 @@
 					
 				<div class="field">
 					<div class="control">
-						<button type="submit" class="button is-link">Envoyer</button>
+						<button @click="register()" class="button is-link">Envoyer</button>
 					</div>
 				</div>
 		</div>
@@ -70,25 +71,36 @@ export default {
 			age: "",
 			birth_date: "",
 			email : "",
-			password : ""
+			missingEmail : false,
+			password : "",
+			wrongPassword: false
 			}
 	},
 	methods : {
 		register(){
-			let informations = {}
-			informations.first_name = this.first_name
-			informations.last_name = this.last_name
-			informations.nickname = this.nickname
-			informations.age = this.age
-			informations.birth_date = this.birth_date
-			informations.email = this.email 
-			informations.password = this.password 
-			console.log(informations)
-			axios
-			.post('users/register',informations).then(response => {
-				console.log(response)
-				this.$router.push("login")
-			});
+			if(this.email.length > 0){
+				if(this.password length > 6){
+					let informations = {}
+					informations.first_name = this.first_name
+					informations.last_name = this.last_name
+					informations.nickname = this.nickname
+					informations.age = this.age
+					informations.birth_date = this.birth_date
+					informations.email = this.email 
+					informations.password = this.password 
+					console.log(informations)
+					axios
+					.post('users/register',informations).then(response => {
+						console.log(response)
+						this.$router.push("login")
+					});
+				} else {
+					this.wrongPassword = true; 
+				}
+			} else {
+				this.missingEmail = true;
+			}
+
 		}
 	}
 }
@@ -97,5 +109,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+	
 
 </style>
