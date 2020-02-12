@@ -46,26 +46,29 @@
 		},
 		methods :{
 			signin(){
-				if (this.password.length > 0 && this.email.length > 0) {
-					let log = {}
-					log.email = this.email
-					log.password = this.password
-					console.log(log)
-					
-					axios
-					.post('users/login',log).then(response => {
-						console.log(response.data)
-						if (response.data.error) {
-							this.wrongPassword = true
-							this.missingPassword = false
-						} else {
-							this.$store.commit('user',response.data)
-							this.$router.push("home")
-						}
-					});
+				if(this.email.length > 0){
+					if (this.password.length > 0) {
+						let log = {}
+						log.email = this.email
+						log.password = this.password
+						console.log(log)
+						
+						axios
+						.post('users/login',log).then(response => {
+							console.log(response.data)
+							if (response.data.error) {
+								this.wrongPassword = true
+								this.missingPassword = false
+							} else {
+								this.$store.commit('user',response.data)
+								this.$router.push("home")
+							}
+						});
+					} else {
+						this.missingPassword = true;
+					}
 				} else {
 					this.missingEmail = true;
-					this.missingPassword = true;
 				}
 			}
 		},
