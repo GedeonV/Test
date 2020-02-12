@@ -75,24 +75,20 @@ export default {
 	},
 	methods : {
 		register(){
-			if (this.password.length > 2) {
-				let informations = {}
-				informations.first_name = this.first_name
-				informations.last_name = this.last_name
-				informations.nickname = this.nickname
-				informations.age = this.age
-				informations.birth_date = this.birth_date
-				informations.email = this.email 
-				informations.password = this.password 
-				console.log(informations)
-				axios
-				.post('users/register',informations).then(response => {
-					console.log(response)
-					this.$router.push("login")
-				});
-			} else {
-				alert("Informations manquantes")
-			}
+			let informations = {}
+			informations.first_name = this.first_name
+			informations.last_name = this.last_name
+			informations.nickname = this.nickname
+			informations.age = this.age
+			informations.birth_date = this.birth_date
+			informations.email = this.email 
+			informations.password = this.password 
+			console.log(informations)
+			axios
+			.post('users/register',informations).then(response => {
+				console.log(response)
+				this.$router.push("login")
+			});
 		}
 	}
 }
