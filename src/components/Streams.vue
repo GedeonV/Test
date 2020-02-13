@@ -48,7 +48,7 @@ export default {
 				title: '',
 				description: '',
 				streams : {},
-				currentStream : false,
+				currentStream : false
 			}
 	},
 	methods : {
