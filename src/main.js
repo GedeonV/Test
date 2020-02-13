@@ -5,9 +5,7 @@ import store from './store'
 import './../node_modules/bulma/css/bulma.css'
 import axios from 'axios'
 import Gravatar from 'vue-gravatar';
-import io from 'socket.io-client';
 
-Vue.use(io);
 Vue.component('v-gravatar', Gravatar);
 
 import { tools } from './tools'

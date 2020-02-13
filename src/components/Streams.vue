@@ -49,7 +49,6 @@ export default {
 				description: '',
 				streams : {},
 				currentStream : false,
-				socket : io('localhost')
 			}
 	},
 	methods : {
