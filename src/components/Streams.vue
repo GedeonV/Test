@@ -40,6 +40,7 @@
 </template>
 
 <script>
+
 export default {
 	name : 'Streams',
 	data() {
@@ -47,7 +48,8 @@ export default {
 				title: '',
 				description: '',
 				streams : {},
-				currentStream : false
+				currentStream : false,
+				socket : io('localhost')
 			}
 	},
 	methods : {
