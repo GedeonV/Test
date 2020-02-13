@@ -40,7 +40,7 @@
 </template>
 
 <script>
-//import io from 'socket.io-client';
+
 export default {
 	name : 'Streams',
 	data() {
@@ -49,7 +49,6 @@ export default {
 				description: '',
 				streams : {},
 				currentStream : false,
-				socket : io('localhost')
 			}
 	},
 	methods : {
