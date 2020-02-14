@@ -53,11 +53,6 @@ export default {
 			}
 	},
 	methods : {
-		listenning(){
-			this.socket.on('image', (data) => {
-				console.log('data', data);
-			})
-		},
 		postStream(){
 			let streamData = {}
 			streamData.user_id = this.$store.state.user.user_id
@@ -107,7 +102,13 @@ export default {
 			}
 			this.$bus.$on('reloadStream', this.loadStreams)
 			setInterval(this.loadStreams, 15000)
-		this.listenning();
+		
+		listenning(){
+			this.socket.on('image', (data) => {
+				console.log('data', data);
+			})
+		}	
+
 	}
 }
 
