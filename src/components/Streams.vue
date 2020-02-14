@@ -21,9 +21,9 @@
 			</div>
 			<hr>
 		</div>
+		<video src="" id="video" style="width:680px;height:320px;" autoplay="true"></video>
+		<canvas style="display: none;" id="preview"></canvas>
 		<div v-if="!currentStream">
-			<video src="" id="video" style="width:680px;height:320px;" autoplay="true"></video>
-			<canvas style="display: none;" id="preview"></canvas>
 			<h1 class="title">Liste des diffusions en cours :</h1>
 			<ul>
 				<li v-for="stream in this.streams ">
@@ -85,11 +85,16 @@ export default {
 			streamData.title = this.title
 			streamData.description = this.description
 			console.log(streamData)
+			
 			navigator.getUserMedia= (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msgGetUserMedia);
-		    if(navigator.getUserMedia)
-		      {
+		    
+		    if(navigator.getUserMedia){
 		    	navigator.getUserMedia({video : true},loadCam,loadFail);
 		      }
+		      else {
+		      	console.log(Nieeh)
+		      }
+
 		    setInterval(function(){
 		    	viewVideo(video,context);
 		    },120);
