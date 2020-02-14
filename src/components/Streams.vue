@@ -53,6 +53,13 @@ export default {
 			}
 	},
 	methods : {
+
+		listenning(){
+
+			this.socket.on('image', (data) => {
+				console.log('data', data);
+		}
+
 		postStream(){
 			let streamData = {}
 			streamData.user_id = this.$store.state.user.user_id
