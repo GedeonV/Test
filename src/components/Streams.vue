@@ -107,7 +107,7 @@ export default {
 			}
 			this.$bus.$on('reloadStream', this.loadStreams)
 			setInterval(this.loadStreams, 15000)
-		listenning();
+		this.listenning();
 	}
 }
 
