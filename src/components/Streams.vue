@@ -103,7 +103,7 @@ export default {
 			axios
 			.get('streams/stream/'+this.$route.params.id).then(response => {
 				this.currentStream = response.data;
-				socket.on('stream',function(image){
+				this.socket.on('stream',function(image){
 				    var img = document.getElementById("play");
 				    img.src = image;
    				})
@@ -141,6 +141,7 @@ export default {
 		this.$bus.$on('reloadStream', this.loadStreams)
 		setInterval(this.loadStreams, 15000)
 		setInterval(this.listenning, 1000)
+		
 		let canvas = document.getElementById("preview");
 		let context = canvas.getContext("2d");
 
