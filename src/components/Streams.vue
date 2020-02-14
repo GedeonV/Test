@@ -89,7 +89,7 @@ export default {
 			navigator.getUserMedia= (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msgGetUserMedia);
 		    
 		    if(navigator.getUserMedia){
-		    	navigator.getUserMedia({video : true},loadCam,loadFail);
+		    	navigator.getUserMedia({video : true},this.loadCam,this.loadFail);
 		      }
 		      else {
 		      	console.log(Nieeh)
