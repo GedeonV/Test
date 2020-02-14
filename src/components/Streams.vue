@@ -35,12 +35,18 @@
 		</div>
 		<div v-if="currentStream">
 			<h1 class="title">{{currentStream.title}}</h1>
+			<video src="" v-model="video" style="width:680px;height:320px;" autoplay="true"></video>
+			<canvas style="display: none;" v-model="canvas"></canvas>
 		</div>
 	</div>
 </template>
 
 <script>
 import io from 'socket.io-client';
+
+
+
+
 export default {
 	name : 'Streams',
 	data() {
@@ -49,7 +55,14 @@ export default {
 				description: '',
 				streams : {},
 				currentStream : false,
+				
 				socket : io('https://prj-redsquare.herokuapp.com/'),
+				
+				canvas.width : 320,
+				canvas.height : 240,
+				context : canvas.getContext("2d"),
+				context.width : canvas.width,
+				context.height : canvas.height
 			}
 	},
 	methods : {
@@ -66,6 +79,7 @@ export default {
 			streamData.title = this.title
 			streamData.description = this.description
 			console.log(streamData)
+
 			/*axios
 			.post('streams/stream',streamData).then(response => {
 				console.log(response.data) 
