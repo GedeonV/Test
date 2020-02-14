@@ -96,7 +96,7 @@ export default {
 		      }
 
 		    setInterval(function(){
-		    	viewVideo(video,context);
+		    	this.viewVideo(video,context);
 		    },120);
 
 			/*axios
