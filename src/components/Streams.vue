@@ -22,6 +22,8 @@
 			<hr>
 		</div>
 		<div v-if="!currentStream">
+			<video src="" id="video" style="width:680px;height:320px;" autoplay="true"></video>
+			<canvas style="display: none;" id="canvas"></canvas>
 			<h1 class="title">Liste des diffusions en cours :</h1>
 			<ul>
 				<li v-for="stream in this.streams ">
@@ -35,8 +37,7 @@
 		</div>
 		<div v-if="currentStream">
 			<h1 class="title">{{currentStream.title}}</h1>
-			<video src="" v-model="video" style="width:680px;height:320px;" autoplay="true"></video>
-			<canvas style="display: none;" v-model="canvas"></canvas>
+			<img id="play">
 		</div>
 	</div>
 </template>
@@ -44,7 +45,15 @@
 <script>
 import io from 'socket.io-client';
 
+let canvas = document.getElementById("preview");
+let context = canvas.getContext("2d");
 
+canvas.width = 320;
+canvas.height = 240;
+context.width = canvas.width;
+context.height = canvas.height;
+
+let video = document.getElementById("video");
 
 
 export default {
@@ -57,21 +66,25 @@ export default {
 				currentStream : false,
 				
 				socket : io('https://prj-redsquare.herokuapp.com/'),
-				
-				canvas.width : 320,
-				canvas.height : 240,
-				context : canvas.getContext("2d"),
-				context.width : canvas.width,
-				context.height : canvas.height
 			}
 	},
 	methods : {
 		
-		listenning(){
-			this.socket.on('image', (data) => {
-				console.log('data', data)
-			})
+		loadCam(stream)
+		{
+			video.src = window.URL.createObjectURL(stream);
+			console.log('WebCam connectée !')
 		},
+
+		loadFail(){
+			console.log('Webcam non connectée')
+		},
+
+		viewVideo(video,context)
+		{
+			context.drawImage(video,0,0,context.width, context.height)
+			socket.emit('stream',canvas.toDataURL('image/webp'))
+		}
 
 		postStream(){
 			let streamData = {}
@@ -79,6 +92,14 @@ export default {
 			streamData.title = this.title
 			streamData.description = this.description
 			console.log(streamData)
+			navigator.getUserMedia= (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msgGetUserMedia);
+		    if(navigator.getUserMedia)
+		      {
+		    	navigator.getUserMedia({video : true},loadCam,loadFail);
+		      }
+		    setInterval(function(){
+		    	viewVideo(video,context);
+		    },120);
 
 			/*axios
 			.post('streams/stream',streamData).then(response => {
@@ -89,7 +110,10 @@ export default {
 			axios
 			.get('streams/stream/'+this.$route.params.id).then(response => {
 				this.currentStream = response.data;
-				
+				socket.on('stream',function(image){
+				    var img = document.getElementById("play");
+				    img.src = image;
+   				})
 			})
 		},
 
