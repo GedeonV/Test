@@ -90,13 +90,13 @@ export default {
 		    
 		    if(navigator.getUserMedia){
 		    	navigator.getUserMedia({video : true},this.loadCam,this.loadFail);
-		      }
-		      else {
+		    }
+		    else {
 		      	console.log(Nieeh)
-		      }
+		    }
 
-		    setInterval(function(){
-		    	viewVideo(video,this.context);
+		    setInterval(() => {
+		    	this.viewVideo(video,this.context);
 		    },120);
 
 			/*axios
@@ -140,9 +140,10 @@ export default {
 	mounted(){
 		if(this.$route.params.id){
 				this.loadStream();
-			} else {
+		} else {
 				this.loadStreams();
-			}
+		}
+
 		this.$bus.$on('reloadStream', this.loadStreams)
 		setInterval(this.loadStreams, 15000)
 		setInterval(this.listenning, 1000)
