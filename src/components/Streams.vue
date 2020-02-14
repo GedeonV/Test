@@ -45,13 +45,6 @@
 <script>
 import io from 'socket.io-client';
 
-let canvas = document.getElementById("preview");
-let context = canvas.getContext("2d");
-
-canvas.width = 320;
-canvas.height = 240;
-context.width = canvas.width;
-context.height = canvas.height;
 
 let video = document.getElementById("video");
 
@@ -148,6 +141,13 @@ export default {
 		this.$bus.$on('reloadStream', this.loadStreams)
 		setInterval(this.loadStreams, 15000)
 		setInterval(this.listenning, 1000)
+		let canvas = document.getElementById("preview");
+		let context = canvas.getContext("2d");
+
+		canvas.width = 320;
+		canvas.height = 240;
+		context.width = canvas.width;
+		context.height = canvas.height;
 	}	
 }
 
