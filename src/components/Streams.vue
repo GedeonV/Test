@@ -93,10 +93,10 @@ export default {
 			streamData.description = this.description
 			console.log(streamData)
 			
-			navigator.getUserMedia= (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msgGetUserMedia);
+			//navigator.getUserMedia= (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msgGetUserMedia);
 		    
-		    if(navigator.getUserMedia){
-		    	navigator.getUserMedia({video : true},this.loadCam(stream),this.loadFail);
+		    if(navigator.mediaDevices){
+		    	 navigator.mediaDevices.getUserMedia({video : true},this.loadCam(stream),this.loadFail);
 		    }
 		    else {
 		      	console.log(Nieeh)
