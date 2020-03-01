@@ -61,7 +61,7 @@ export default {
 		
 		loadCam(stream)
 		{
-			video.src = window.URL.createObjectURL(stream);
+			video.srcObject = stream
 			console.log('WebCam connectée !')
 		},
 
@@ -96,7 +96,7 @@ export default {
 			navigator.getUserMedia= (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msgGetUserMedia);
 		    
 		    if(navigator.getUserMedia){
-		    	navigator.getUserMedia({video : true},this.loadCam,this.loadFail);
+		    	navigator.getUserMedia({video : true},this.loadCam(stream),this.loadFail);
 		    }
 		    else {
 		      	console.log(Nieeh)
