@@ -75,7 +75,7 @@ export default {
 			console.log(video)
 			console.log(canvas)
 			context.drawImage(video,0,0,context.width, context.height)
-			this.socket.emit('stream',canvas.toDataURL('image/webp'))
+			this.socket.emit('stream',canvas.toDataURL('image/png'))
 		},
 
 		postStream(){
@@ -102,7 +102,8 @@ export default {
 		      	console.log(Nieeh)
 		    }
 
-		   	setInterval(console.log("test"),1200);
+		   	setInterval(
+		    	this.viewVideo(video,context,canvas),120);
 
 			/*axios
 			.post('streams/stream',streamData).then(response => {
@@ -149,10 +150,9 @@ export default {
 				this.loadStreams();
 		}
 
-		//this.$bus.$on('reloadStream', this.loadStreams)
+		this.$bus.$on('reloadStream', this.loadStreams)
 		setInterval(this.loadStreams, 15000)
-		setInterval(console.log("test"),120)
-		//setInterval(this.listenning, 1000)
+		setInterval(this.listenning, 1000)
 	}	
 }
 
