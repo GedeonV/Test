@@ -81,6 +81,7 @@ export default {
 
 		postStream(){
 			console.log(context)
+			console.log(this.context)
 			let streamData = {}
 			streamData.user_id = this.$store.state.user.user_id
 			streamData.title = this.title
@@ -96,8 +97,8 @@ export default {
 		      	console.log(Nieeh)
 		    }
 
-		    setInterval(
-		    	this.viewVideo(video,context),120);
+		   	//setInterval(
+		    //	this.viewVideo(video,context),120);
 
 			/*axios
 			.post('streams/stream',streamData).then(response => {
