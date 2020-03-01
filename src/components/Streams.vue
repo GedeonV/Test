@@ -46,7 +46,7 @@
 import io from 'socket.io-client';
 
 
-let video = document.getElementById("video");
+var video = document.getElementById("video");
 
 
 export default {
@@ -75,7 +75,7 @@ export default {
 
 		viewVideo(video,context)
 		{
-			this.context.drawImage(this.video,0,0,this.context.width, this.context.height)
+			context.drawImage(video,0,0,context.width, context.height)
 			socket.emit('stream',this.canvas.toDataURL('image/webp'))
 		},
 
@@ -96,7 +96,7 @@ export default {
 		    }
 
 		    setInterval(
-		    	this.viewVideo(video,this.context),120);
+		    	this.viewVideo(video,context),120);
 
 			/*axios
 			.post('streams/stream',streamData).then(response => {
@@ -147,8 +147,8 @@ export default {
 		setInterval(this.loadStreams, 15000)
 		setInterval(this.listenning, 1000)
 		
-		let canvas = document.getElementById("preview");
-		let context = canvas.getContext("2d");
+		var canvas = document.getElementById("preview");
+		var context = canvas.getContext("2d");
 
 		canvas.width = 320;
 		canvas.height = 240;
