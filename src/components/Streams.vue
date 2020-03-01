@@ -79,14 +79,6 @@ export default {
 		},
 
 		postStream(){
-			let canvas = document.getElementById("preview");
-			let context = canvas.getContext("2d");
-			let video = document.getElementById("video");
-
-			canvas.width = 320;
-			canvas.height = 240;
-			context.width = canvas.width;
-			context.height = canvas.height;
 			let streamData = {}
 			streamData.user_id = this.$store.state.user.user_id
 			streamData.title = this.title
@@ -101,9 +93,6 @@ export default {
 		    else {
 		      	console.log(Nieeh)
 		    }
-
-		   	window.setInterval(this.viewVideo(video,context,canvas),120);
-
 			/*axios
 			.post('streams/stream',streamData).then(response => {
 				console.log(response.data) 
@@ -143,8 +132,19 @@ export default {
 	    }
 	},
 	mounted(){
+		let canvas = document.getElementById("preview");	
+		let context = canvas.getContext("2d");
+		let video = document.getElementById("video");
+
+		canvas.width = 320;
+		canvas.height = 240;
+		context.width = canvas.width;
+		context.height = canvas.height;
+
+
 		if(this.$route.params.id){
 				this.loadStream();
+				setInterval(this.viewVideo(video,context,canvas),120);
 		} else {
 				this.loadStreams();
 		}
