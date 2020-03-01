@@ -102,7 +102,7 @@ export default {
 		      	console.log(Nieeh)
 		    }
 
-		   	setInterval(console.log("test"),120);
+		   	setInterval(console.log("test"),1200);
 
 			/*axios
 			.post('streams/stream',streamData).then(response => {
