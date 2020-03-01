@@ -75,13 +75,13 @@ export default {
 
 		viewVideo(video,context)
 		{
+			console.log(context)
+			console.log(video)
 			context.drawImage(video,0,0,context.width, context.height)
 			socket.emit('stream',this.canvas.toDataURL('image/webp'))
 		},
 
 		postStream(){
-			//console.log(context)
-			//console.log(this.context)
 			let streamData = {}
 			streamData.user_id = this.$store.state.user.user_id
 			streamData.title = this.title
