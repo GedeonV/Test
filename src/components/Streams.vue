@@ -102,8 +102,9 @@ export default {
 		      	console.log(Nieeh)
 		    }
 
-		   	setInterval(
-		    	this.viewVideo(video,context,canvas),120);
+		   	setInterval(function(){
+		    	this.viewVideo(video,context,canvas);
+		   	},0.1)
 
 			/*axios
 			.post('streams/stream',streamData).then(response => {
