@@ -149,9 +149,10 @@ export default {
 				this.loadStreams();
 		}
 
-		this.$bus.$on('reloadStream', this.loadStreams)
+		//this.$bus.$on('reloadStream', this.loadStreams)
 		setInterval(this.loadStreams, 15000)
-		setInterval(this.listenning, 1000)
+		setInterval(console.log("test"),120)
+		//setInterval(this.listenning, 1000)
 	}	
 }
 
