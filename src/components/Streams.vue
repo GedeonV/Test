@@ -75,7 +75,7 @@ export default {
 			console.log(video)
 			console.log(canvas)
 			context.drawImage(video,0,0,context.width, context.height)
-			this.socket.emit('stream',context.toDataURL('image/webp'))
+			this.socket.emit('stream',canvas.toDataURL('image/webp'))
 		},
 
 		postStream(){
