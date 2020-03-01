@@ -75,7 +75,7 @@ export default {
 
 		viewVideo(video,context)
 		{
-			this.context.drawImage(video,0,0,this.context.width, this.context.height)
+			this.context.drawImage(this.video,0,0,this.context.width, this.context.height)
 			socket.emit('stream',this.canvas.toDataURL('image/webp'))
 		},
 
