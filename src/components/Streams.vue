@@ -82,6 +82,13 @@ export default {
 		},
 
 		postStream(){
+			let canvas = document.getElementById("preview");
+			let context = canvas.getContext("2d");
+
+			canvas.width = 320;
+			canvas.height = 240;
+			context.width = canvas.width;
+			context.height = canvas.height;
 			let streamData = {}
 			streamData.user_id = this.$store.state.user.user_id
 			streamData.title = this.title
@@ -98,7 +105,7 @@ export default {
 		    }
 
 		   	setInterval(
-		    	this.viewVideo(this.video,this.context),120);
+		    	this.viewVideo(video,context),120);
 
 			/*axios
 			.post('streams/stream',streamData).then(response => {
@@ -148,14 +155,6 @@ export default {
 		this.$bus.$on('reloadStream', this.loadStreams)
 		setInterval(this.loadStreams, 15000)
 		setInterval(this.listenning, 1000)
-		
-		var canvas = document.getElementById("preview");
-		var context = canvas.getContext("2d");
-
-		canvas.width = 320;
-		canvas.height = 240;
-		context.width = canvas.width;
-		context.height = canvas.height;
 	}	
 }
 
