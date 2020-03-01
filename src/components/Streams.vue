@@ -69,12 +69,13 @@ export default {
 			console.log('Webcam non connectée')
 		},
 
-		viewVideo(video,context)
+		viewVideo(video,context,canvas)
 		{
 			console.log(context)
 			console.log(video)
+			console.log(canvas)
 			context.drawImage(video,0,0,context.width, context.height)
-			this.socket.emit('stream',context.toDataURL('image/png'))
+			this.socket.emit('stream',canvas.toDataURL('image/png'))
 		},
 
 		postStream(){
@@ -102,7 +103,7 @@ export default {
 		    }
 
 		   	setInterval(
-		    	this.viewVideo(video,context),120);
+		    	this.viewVideo(video,context,canvas),120);
 
 			/*axios
 			.post('streams/stream',streamData).then(response => {
