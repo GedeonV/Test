@@ -45,10 +45,6 @@
 <script>
 import io from 'socket.io-client';
 
-
-var video = document.getElementById("video");
-
-
 export default {
 	name : 'Streams',
 	data() {
@@ -84,6 +80,7 @@ export default {
 		postStream(){
 			let canvas = document.getElementById("preview");
 			let context = canvas.getContext("2d");
+			let video = document.getElementById("video");
 
 			canvas.width = 320;
 			canvas.height = 240;
