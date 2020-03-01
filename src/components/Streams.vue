@@ -80,6 +80,7 @@ export default {
 		},
 
 		postStream(){
+			console.log(context)
 			let streamData = {}
 			streamData.user_id = this.$store.state.user.user_id
 			streamData.title = this.title
