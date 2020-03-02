@@ -102,8 +102,8 @@ export default {
 		      	console.log(Nieeh)
 		    }
 
-		   	setInterval(function(){
-		    	this.viewVideo(video,context,canvas);
+		   	setInterval(function() {
+		    	viewVideo(video,context,canvas);
 		   	},0.1)
 
 			/*axios
