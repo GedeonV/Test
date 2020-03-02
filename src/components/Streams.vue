@@ -87,6 +87,7 @@ export default {
 			canvas.height = 240;
 			context.width = canvas.width;
 			context.height = canvas.height;
+			
 			let streamData = {}
 			streamData.user_id = this.$store.state.user.user_id
 			streamData.title = this.title
@@ -102,9 +103,7 @@ export default {
 		      	console.log(Nieeh)
 		    }
 
-		   	setInterval(function() {
-		    	viewVideo(video,context,canvas);
-		   	},0.1)
+		   	setInterval(this.viewVideo(video,context,canvas),0.1);
 
 			/*axios
 			.post('streams/stream',streamData).then(response => {
